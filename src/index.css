@@ -27,3 +27,9 @@ body {
   background-color: var(--store-bg-color);
   padding: 3% 0;
 }
+
+.contact-card{
+  border: solid black;
+  margin: 1%;
+  padding: 2%;
+}
