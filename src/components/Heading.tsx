@@ -6,7 +6,7 @@ interface titleProps {
 
 function Heading( props: titleProps ) {
   return (
-    <div>
+    <div className="title">
       <h1>{props.title}</h1>
     </div>
   )

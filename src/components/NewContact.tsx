@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 interface contactObj {
     firstName: string, 
@@ -9,24 +9,21 @@ interface contactObj {
 
 
 interface NewContactProps{
-    firstName: string,
-    setFirstName: (any: any) => void,
-    lastName: string,
-    setLastName: (any: any) => void,
-    isActive: boolean,
-    setIsActive: (any: any) => void,
     contactList: any[],
     setContactList: (c:any[]) => void,
 }
  
 function NewContact(props: NewContactProps) {
-    const [addMore, setAddMore] = useState(true);
+    let firstName: string = "";
+    let lastName: string = "";
+    let isActive: boolean = false;
+    const navigate = useNavigate();
 
     const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 
         if (e.target.value && typeof e.target.value === "string") {
-            if (e.target.value.toLowerCase() === "true") props.setIsActive(true);
-            if (e.target.value.toLowerCase() === "false") props.setIsActive(false);
+            if (e.target.value.toLowerCase() === "true") isActive = true;
+            if (e.target.value.toLowerCase() === "false") isActive = false;
        }
     }
 
@@ -38,24 +35,23 @@ function NewContact(props: NewContactProps) {
         e.preventDefault(); 
         const newList = [...props.contactList, {
             id: props.contactList.length > 0 ? props.contactList[props.contactList.length - 1].id + 1 : 0,
-            firstName: props.firstName, 
-            lastName: props.lastName,
-            isActive: props.isActive,
+            firstName: firstName, 
+            lastName: lastName,
+            isActive: isActive,
         }]
         props.setContactList(newList);
-        setAddMore(false)
-        
+        navigate('/contact', {replace: true})
     }
 
   return (
     <form onSubmit={(e) => handleOnSubmit(e)} >
         <label htmlFor="fname">First name </label>
-        <input type="text"  id="fname" onChange={(e) => props.setFirstName(e.target.value)}/>
+        <input type="text"  id="fname" onChange={(e) => firstName = e.target.value}/>
 
         <br />
 
         <label htmlFor="lname">Last name </label>
-        <input type="text"  id="lname" onChange={(e) => props.setLastName(e.target.value)}/>
+        <input type="text"  id="lname" onChange={(e) => lastName = e.target.value}/>
 
         <br />
 
@@ -66,15 +62,7 @@ function NewContact(props: NewContactProps) {
             No
 
         <br />
-        {
-            (addMore) ? 
-            <button>Add</button> : 
-            (
-                <Link to='/Contact'>
-                    <button>Done</button>
-                </Link>
-            )
-        }
+        <button>Add</button> : 
 
     </form>
   )

@@ -2,8 +2,8 @@ import { useParams, Link } from "react-router-dom"
 
 interface Contactprops{
     contactList: any[], 
-    handleDelete: (id: number) => void,
-    handleEdit: (id: number) => void,                                                                 
+    handleDelete: (id: number, isEditing: boolean) => void,
+    // handleEdit: (id: number) => void,                                                                 
 }
 
 function SingleContact(props: Contactprops) {
@@ -15,11 +15,15 @@ function SingleContact(props: Contactprops) {
         {
             contact &&
             <>
-                <h3>{contact.firstName} {contact.lastName}</h3>
+                <h3>Name: {contact.firstName} {contact.lastName}</h3>
                 <h3>Is Active: { contact.isActive ? 'true' : 'false'}</h3>
                 <h3>Id: {contact.id} </h3>
-                <button onClick={() => props.handleDelete(contact.id)}>Delete</button>
-                <button onClick={() => props.handleEdit(contact.id)}>Edit</button>
+                <button className='add-del-btn' onClick={() => props.handleDelete(contact.id, false)}>
+                    Delete
+                </button>
+                <Link to={`/edit/${contact.id}`} >
+                    <button className='add-del-btn' >Edit</button>
+                </Link>
             </>
         }
         {!contact &&
