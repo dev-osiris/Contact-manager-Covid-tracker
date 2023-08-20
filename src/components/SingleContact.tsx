@@ -3,7 +3,6 @@ import { useParams, Link } from "react-router-dom"
 interface Contactprops{
     contactList: any[], 
     handleDelete: (id: number, isEditing: boolean) => void,
-    // handleEdit: (id: number) => void,                                                                 
 }
 
 function SingleContact(props: Contactprops) {

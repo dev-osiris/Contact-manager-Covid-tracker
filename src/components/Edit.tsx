@@ -2,24 +2,35 @@ import { useParams } from 'react-router-dom';
 import {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 
+type contactObj = {
+    firstName: string, 
+    lastName: string, 
+    isActive: boolean,
+    id: number,
+}
+
 interface Editprops{
-    contactList: any[],  
-    setContactList: (c: any[]) => void, 
+    contactList: contactObj[],  
+    setContactList: (c: contactObj[]) => void, 
     handleDelete: (id: number, isEditing: boolean) => void,                                                               
 }
 
 function Edit(props: Editprops) {
     const id = useParams();
+
+    //find the contact that is to be edited from contactList[].
     const contact = props.contactList.find(contact => (contact.id).toString() === id.id.toString());
     const [fname, setFname] = useState(contact.firstName)
     const [lname, setLname] = useState(contact.lastName)
-    const [active,setActive] = useState(contact.Active)
+    const [active, setActive] = useState(contact.isActive)
     const navigate = useNavigate();
 
-    const handleOnSubmit = (e: any) => {
+    const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault(); 
         
-        let list2 = [...props.contactList]
+        let list2: contactObj[] = [...props.contactList];
+
+        //delete the original contact and replace it with the edited one.
         for (let index = 0; index < list2.length; index++) {
             if(list2[index].id.toString() === id.id.toString()){
                 list2.splice(index, 1);
@@ -37,11 +48,24 @@ function Edit(props: Editprops) {
 
         navigate('/contact', {replace:true})
     }
+
+
+    //receives string valur from radio button and converts it into boolean so it can be used in state variable
+    const string2bool = (val: string): boolean => {
+        if (val && typeof val === "string") {
+            if (val.toLowerCase() === "yes") return true;
+            if (val.toLowerCase() === "no") return false;
+       }
+       else
+        return false;
+    }
+
   return (
     <div>
       <form className='form' onSubmit={(e) => {handleOnSubmit(e)}} >
-        <label htmlFor="fname">First name </label>
-        <input type="text"  id="fname" value={fname} onChange={(e) => {setFname(e.target.value)}}/>
+      <h2>Add new contact</h2>
+        <label htmlFor="fname">First name* </label>
+        <input type="text"  id="fname" required value={fname} onChange={(e) => {setFname(e.target.value)}}/>
 
         <br />
 
@@ -51,10 +75,27 @@ function Edit(props: Editprops) {
         <br />
 
         <label>Is Active? </label>
-        <input className="radio" type="radio" name="isActive" value={active} onChange={(e) => {setActive(e.target.value)}} />
-            Yes
-        <input className='radio' type="radio" name="isActive" value={active} onChange={(e) => {setActive(e.target.value)}} />
-            No
+        <input 
+            id="yes" 
+            className="radio" 
+            type="radio" 
+            name="isActive" 
+            checked={active}  
+            value="yes"
+            onChange={(e) => {setActive(string2bool(e.target.value))}} 
+        />
+        <label htmlFor="yes">Yes</label>
+
+        <input 
+            id="no" 
+            className='radio' 
+            type="radio" 
+            name="isActive"  
+            value="no"
+            checked={!active} 
+            onChange={(e) => {setActive(string2bool(e.target.value))}} 
+        />
+        <label htmlFor="no">No</label>
 
         <br />
 

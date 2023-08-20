@@ -16,12 +16,13 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    //get data from local storage
     const data = JSON.parse(localStorage.getItem('list')) || [];
     setContactList(data)
   }, [])
 
 
-
+  //delete contacts
   const handleDelete = (id: number, isEditing: boolean) => {
     const contact = contactList.filter(contact => (contact.id).toString() !== id.toString());
     setContactList(contact);
@@ -31,7 +32,6 @@ function App() {
 
   return (
     <>
-
       <a href="/" style={{textDecoration: "none"}}>
         <Heading title="Contact and Map App"/>
       </a>
@@ -57,10 +57,10 @@ function App() {
                                                     />} />
 
           <Route path="/edit/:id" element={ <Edit 
-            contactList={contactList} 
-            setContactList={setContactList} 
-            handleDelete={handleDelete}
-          />} />
+                                              contactList={contactList} 
+                                              setContactList={setContactList} 
+                                              handleDelete={handleDelete}
+                                            />} />
         </Routes>
       </div>  
     </>

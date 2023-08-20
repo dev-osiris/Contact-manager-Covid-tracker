@@ -20,21 +20,21 @@ function Contact(props: contactProps) {
       <div className="main-grid">
 
       {
-        props.contactList.length > 0 ?
+        props.contactList.length > 0 ? //if contact list is not empty show them
         (
           props.contactList.map((contact) => {
             return(
               <ContactPage 
-                key={contact.id}
-                firstName={contact.firstName} 
-                lastName={contact.lastName} 
-                isActive={contact.isActive}
-                id={contact.id}
+                  key={contact.id}
+                  firstName={contact.firstName} 
+                  lastName={contact.lastName} 
+                  isActive={contact.isActive}
+                  id={contact.id}
                 />
                 )
               })
               )
-              : (
+              : ( //if contact list is empty show this msg.
                 <>
             <h2>No contacts found. Add some to see here.</h2>
           </>

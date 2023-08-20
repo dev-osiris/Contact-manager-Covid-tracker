@@ -5,11 +5,12 @@ interface contactObj {
     firstName: string, 
     lastName: string, 
     isActive: boolean,
+    id: number,
 }
 
 
 interface NewContactProps{
-    contactList: any[],
+    contactList: contactObj[],
     setContactList: (c: contactObj[]) => void,
 }
  
@@ -19,7 +20,9 @@ function NewContact(props: NewContactProps) {
     let isActive: boolean = false;
     const navigate = useNavigate();
 
-    const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+    //converts string value of 'true' and 'false' to boolean true and false respectively
+    const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
 
         if (e.target.value && typeof e.target.value === "string") {
             if (e.target.value.toLowerCase() === "true") isActive = true;
@@ -27,12 +30,15 @@ function NewContact(props: NewContactProps) {
        }
     }
 
+    //append the new contact to local storage
     useEffect(() => {
         localStorage.setItem('list', JSON.stringify(props.contactList));
     }, [props.contactList])
     
     const handleOnSubmit = (e: any) =>{
         e.preventDefault(); 
+
+        //merge the new contact with the list of older contacts
         const newList = [...props.contactList, {
             id: props.contactList.length > 0 ? props.contactList[props.contactList.length - 1].id + 1 : 0,
             firstName: firstName, 
@@ -40,12 +46,13 @@ function NewContact(props: NewContactProps) {
             isActive: isActive,
         }]
         props.setContactList(newList);
-        navigate('/contact', {replace: true})
+        navigate('/contact', {replace: true});
     }
 
   return (
     <form className="form" onSubmit={(e) => handleOnSubmit(e)} >
-        <label htmlFor="fname">First name </label>
+        <h2>Add new contact</h2>
+        <label htmlFor="fname">First name* </label>
         <input type="text"  id="fname" required onChange={(e) => firstName = e.target.value}/>
 
         <br />
@@ -56,10 +63,26 @@ function NewContact(props: NewContactProps) {
         <br />
 
         <label>Is Active? </label>
-        <input className='radio' type="radio" name="isActive" value='true' onChange={handleRadioChange} />
-            Yes
-        <input className='radio' type="radio" name="isActive" value='false' onChange={handleRadioChange} />
-            No
+
+        <input 
+            id="yes" 
+            className='radio' 
+            type="radio" 
+            name="isActive" 
+            value='true' 
+            onChange={handleRadioChange} 
+        />
+        <label htmlFor="yes">Yes</label>
+
+        <input 
+            id="no" 
+            className='radio' 
+            type="radio" 
+            name="isActive" 
+            value='false' 
+            onChange={handleRadioChange} 
+        />
+        <label htmlFor="no">No</label>
 
         <br />
         <button className='add-del-btn' >Add</button> : 

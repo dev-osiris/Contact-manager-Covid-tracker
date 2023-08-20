@@ -9,6 +9,7 @@ interface Contactprops{
 
 function ContactPage(props: Contactprops) {
   return (
+    //pass the id of the selected contact through URL parameters
     <Link className="single-card-link" to={`/singlecontact/${props.id}`}>
         <div className="contact-card">
         <h3>Name: {props.firstName} {props.lastName}</h3>
@@ -19,4 +20,4 @@ function ContactPage(props: Contactprops) {
   )
 }
 
-export default ContactPage
+export default ContactPage;
