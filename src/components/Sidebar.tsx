@@ -2,16 +2,12 @@
 function Sidebar() {
   return (
     <div className="sidebar">
-      <div>
+      <div className="sidebar-element">
         <a href="/contact">Contact</a>
       </div>
 
-      <div className="map">
+      <div className="sidebar-element">
         <a href="/map">Charts and Maps</a>
-      </div>
-
-      <div>
-        sidebar
       </div>
     </div>
   )

@@ -1,4 +1,3 @@
-import { JsxElement } from "typescript"
 
 interface titleProps {
     title: string,

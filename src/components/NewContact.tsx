@@ -10,7 +10,7 @@ interface contactObj {
 
 interface NewContactProps{
     contactList: any[],
-    setContactList: (c:any[]) => void,
+    setContactList: (c: contactObj[]) => void,
 }
  
 function NewContact(props: NewContactProps) {
