@@ -32,7 +32,7 @@ function App() {
   return (
     <>
 
-      <a href="/">
+      <a href="/" style={{textDecoration: "none"}}>
         <Heading title="Contact and Map App"/>
       </a>
         

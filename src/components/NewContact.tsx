@@ -46,7 +46,7 @@ function NewContact(props: NewContactProps) {
   return (
     <form className="form" onSubmit={(e) => handleOnSubmit(e)} >
         <label htmlFor="fname">First name </label>
-        <input type="text"  id="fname" onChange={(e) => firstName = e.target.value}/>
+        <input type="text"  id="fname" required onChange={(e) => firstName = e.target.value}/>
 
         <br />
 
