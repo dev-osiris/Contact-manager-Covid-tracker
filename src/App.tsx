@@ -3,12 +3,12 @@ import Sidebar from "./components/Sidebar";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Home from "./components/Home";
 import Contact from "./components/Contact";
-import Map from "./components/Map";
-import {useState, useEffect} from 'react'
+import {useEffect} from 'react'
 import useLocalStorage from "use-local-storage";
 import NewContact from "./components/NewContact";
 import SingleContact from "./components/SingleContact";
 import Edit from "./components/Edit";
+import AppCovid from "./covid/AppCovid";
 
 function App() {
   interface contactObj {
@@ -26,8 +26,9 @@ function App() {
   }, [])
 
 
+
   const handleDelete = (id: number, isEditing: boolean) => {
-    const contact = contactList.filter(contact => (contact.id).toString() != id.toString());
+    const contact = contactList.filter(contact => (contact.id).toString() !== id.toString());
     setContactList(contact);
     if(!isEditing)
       navigate('/contact', {replace:true})
@@ -43,7 +44,9 @@ function App() {
         <Routes> 
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={ <Contact contactList={contactList} /> } />
-          <Route path="/map" element={ <Map /> } />
+
+          <Route path="/map" element={ <AppCovid /> } />
+
           <Route path="/NewContact" element={ <NewContact 
                                                   contactList={contactList}
                                                   setContactList={setContactList}
@@ -64,5 +67,6 @@ function App() {
     </>
   );
 }
+
 
 export default App;
