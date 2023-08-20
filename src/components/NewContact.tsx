@@ -44,7 +44,7 @@ function NewContact(props: NewContactProps) {
     }
 
   return (
-    <form onSubmit={(e) => handleOnSubmit(e)} >
+    <form className="form" onSubmit={(e) => handleOnSubmit(e)} >
         <label htmlFor="fname">First name </label>
         <input type="text"  id="fname" onChange={(e) => firstName = e.target.value}/>
 
@@ -56,13 +56,13 @@ function NewContact(props: NewContactProps) {
         <br />
 
         <label>Is Active? </label>
-        <input type="radio" name="isActive" value='true' onChange={handleRadioChange} />
+        <input className='radio' type="radio" name="isActive" value='true' onChange={handleRadioChange} />
             Yes
-        <input type="radio" name="isActive" value='false' onChange={handleRadioChange} />
+        <input className='radio' type="radio" name="isActive" value='false' onChange={handleRadioChange} />
             No
 
         <br />
-        <button>Add</button> : 
+        <button className='add-del-btn' >Add</button> : 
 
     </form>
   )

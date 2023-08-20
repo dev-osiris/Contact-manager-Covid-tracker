@@ -13,6 +13,7 @@ body{
   display: flex;
   justify-content: space-evenly;
   padding: 20px;
+  width: 90%;
 }
 
 .app__left {

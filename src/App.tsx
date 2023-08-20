@@ -36,7 +36,11 @@ function App() {
 
   return (
     <>
-      <Heading title="Contact and Map App"/>
+
+      <a href="/">
+        <Heading title="Contact and Map App"/>
+      </a>
+        
       
       <div className="side-by-side">
         <Sidebar />
