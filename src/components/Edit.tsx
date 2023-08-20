@@ -63,7 +63,7 @@ function Edit(props: Editprops) {
   return (
     <div>
       <form className='form' onSubmit={(e) => {handleOnSubmit(e)}} >
-      <h2>Add new contact</h2>
+      <h2>Edit contact</h2>
         <label htmlFor="fname">First name* </label>
         <input type="text"  id="fname" required value={fname} onChange={(e) => {setFname(e.target.value)}}/>
 
