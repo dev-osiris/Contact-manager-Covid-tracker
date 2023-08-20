@@ -1,12 +1,22 @@
 import { useParams, Link } from "react-router-dom"
 
+
+type contactObj = {
+    firstName: string, 
+    lastName: string, 
+    isActive: boolean,
+    id: number,
+}
+
 interface Contactprops{
-    contactList: any[], 
+    contactList: contactObj[], 
     handleDelete: (id: number, isEditing: boolean) => void,
 }
 
-function SingleContact(props: Contactprops) {
+function SingleContact(props: Contactprops): JSX.Element {
   const id = useParams();
+
+  //find the contact in the contactList[] that needs to be diplayed.
   const contact = props.contactList.find(contact => (contact.id).toString() === id.id.toString());
 
   return (
@@ -34,4 +44,4 @@ function SingleContact(props: Contactprops) {
   )
 }
 
-export default SingleContact
+export default SingleContact;
