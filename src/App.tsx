@@ -11,11 +11,6 @@ import Edit from "./components/Edit";
 import AppCovid from "./covid/AppCovid";
 
 function App() {
-  interface contactObj {
-    firstName: string, 
-    lastName: string, 
-    isActive: boolean,
-  }
 
   const [contactList, setContactList] = useLocalStorage("list", []);
   const navigate = useNavigate();
