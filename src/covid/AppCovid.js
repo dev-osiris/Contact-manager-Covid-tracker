@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './App.css';
+import '../index.css';
 import InfoBox from './components/InfoBox';
 import Map from './components/Map';
 import { Card, CardContent, FormControl, MenuItem, Select } from '@mui/material';
@@ -18,9 +18,11 @@ function AppCovid() {
   const [mapZoom, setMapZoom] = useState(3)
   const [mapCountries, setMapCountries] = useState([])
   const [casesType, setCasesType] = useState("cases");
+
   useEffect(() => {
     const getData = async () => {
-      await fetch("https://disease.sh/v3/covid-19/countries")
+      try {
+        await fetch("https://disease.sh/v3/covid-19/countries")
         .then(response => response.json())
         .then(data => {
           const countries = data.map(item => (
@@ -28,26 +30,39 @@ function AppCovid() {
               name: item.country,
               value: item.countryInfo.iso2
             }
-          ))
-          const sortedData = sortData(data)
-          setTableData(sortedData)
-          setMapCountries(data)
-          setCountries(countries)
+            ))
+            const sortedData = sortData(data)
+            setTableData(sortedData)
+            setMapCountries(data)
+            setCountries(countries)
         })
+      }
+      catch (error) {
+          console.error('APP HAS ERROR MAYBE TRY TO RELOAD', error.stack());
+      }
     }
     getData()
   }, [])
+
   useEffect(() => {
-    fetch('https://disease.sh/v3/covid-19/all')
+    try {  
+      fetch('https://disease.sh/v3/covid-19/all')
       .then(response => response.json())
       .then(data => setCountryInfo(data))
+    } 
+    catch (error) {
+      console.error('APP HAS ERROR MAYBE TRY TO RELOAD', error.stack());
+    }
   },[])
+
   const onCountryChange = async e => {
     const url = e.target.value === 'worldwide' ? 
     'https://disease.sh/v3/covid-19/all' : 
     `https://disease.sh/v3/covid-19/countries/${e.target.value}`
 
-    await fetch(url)
+
+    try {
+      await fetch(url)
       .then(response => response.json())
       .then(data => {
         console.log(data)
@@ -56,7 +71,12 @@ function AppCovid() {
         setMapCenter([data.countryInfo.lat, data.countryInfo.long])
         setMapZoom(4)
       })
+    } 
+    catch (error) {
+      console.error('APP HAS ERROR MAYBE TRY TO RELOAD', error.stack());
+    }
   }
+
   return (
     <div className="app">
       <div className="app__left">
@@ -95,6 +115,7 @@ function AppCovid() {
         </div>
         <Map countries={mapCountries} casesType={casesType} center={mapCenter} zoom={mapZoom} />
       </div>
+      
       <Card className="app__right">
         <CardContent>
           <h3>Live Cases by Country</h3>

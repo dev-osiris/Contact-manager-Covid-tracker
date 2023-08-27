@@ -1,17 +1,37 @@
+/* Msg app css */
+
+:root{
+  --primary-bg-color: #ebebeb;
+}
+
+p{
+  font-size: medium;
+  font-weight: lighter;
+}
+
 body {
   margin: 0;
-  background-color: crimson;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  background-color: var(--primary-bg-color);
+  font-family: 'Ubuntu', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+.navbar{
+  align-items: center;
+  text-align: center;
+  position: sticky;
+  top: 0;
+}
+
 .title{
   background-color: black;
   color: white;
-  height: 10vh;
+  height: 100%;
+  max-height: 50px;
+  padding: 5px 0;
 }
 .title > h1{
   margin-top: 0;
@@ -20,26 +40,27 @@ body {
   color: #e3e1e1;
 }
 
+.home{
+  margin-left: 5%;
+}
+
 .sidebar{
   display: flex;
   flex-direction: column;
-  width: 15%;
+  width: 15vw;
   height: 100vh;
-  border-right: solid black;
-  border-top: solid black;
-  border-bottom: solid black;
-}
-
-.home{
-  margin-left: 10%;
+  background-color: var(--primary-bg-color);
+  text-align: center;
 }
 
 .sidebar > div{
-  margin: 10% 0;
+  margin: 5% 0;
   font-size: x-large;
   font-weight: bolder;
-  border-bottom: solid black;
-  padding-bottom: 15%;
+  padding: 10%;
+  background-color: white;
+  border-radius: 4px;
+  overflow: hidden;
 }
 .sidebar > a{
   text-decoration: none;
@@ -56,38 +77,51 @@ body {
   margin-left: 50%;
 }
 
+.contact_2{
+  display: flex;
+  flex-direction: column;
+}
+
 .side-by-side{
   display: flex;
-  background-color: var(--store-bg-color);
+  margin: 0 10%;
 }
 
 .contact-card{
-  border: solid black;
   margin: 1%;
   padding: 2%;
-  width: 30rem;
+  width: 25rem;
   height: 12rem;
-  background-color: aliceblue;
-  color: rgb(135, 0, 27);
+  background-color: white;
+  border-radius: 4px;
+  color: black;
+  font-weight: 200;
+}
+.contact-card:hover{
+  background-color: #f6f6f6;
 }
 
 .main-grid{
   display: flex;
   flex-wrap: wrap;
   gap: 3%;
-  padding: 5% 2%;
+  padding: 3% 0;
   justify-content: center;
-  width: 100vw;
-  height: 50vh;
+  justify-content: flex-start;
+  margin-left: 100px;
 }
 
 
 .add-new-btn{
-  background-color: aliceblue;
+  background-color: white;
   color: black;
   font-size: large;
   width: 6.5em;
   height: 2.5em;
+  margin-left: min(10%, 100px);
+  margin-top: 2%;
+  border: none;
+  border-radius: 4px;
 }
 .add-new-btn:hover{
   background-color: var(--navbar-bg-color);
@@ -98,17 +132,18 @@ body {
 }
 
 .single-contact{
-  border: solid black;
   margin: 1%;
   padding: 2%;
   width: 40rem;
   height: 15rem;
-  background-color: aliceblue;
-  color: crimson;
+  background-color: white;
+  border-radius: 4px;
 }
+
 .single-card-link{
   text-decoration: none;
 }
+
 
 .add-del-btn{
   background-color: black;
@@ -140,4 +175,38 @@ body {
 
 .radio{
   margin-left: 1vw;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+/* covid app css */
+
+
+.app__header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.app{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+  width: 90%;
+}
+
+.app__left {
+  flex: 0.9;
+}
+
+.app__stats{
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 990px) {
+  .app{
+    flex-direction: column;
+  }
 }

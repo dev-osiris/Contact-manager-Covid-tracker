@@ -11,4 +11,4 @@ function Heading( props: titleProps ) {
   )
 }
 
-export default Heading
+export default Heading;

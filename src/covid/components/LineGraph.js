@@ -70,13 +70,18 @@ const LineGraph = ({ casesType="cases" }) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=120')
+            try {
+                fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=120')
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data)
                     const chartData = buildChartData(data, casesType)
                     setData(chartData)
-            })
+                })
+            } 
+            catch (error) {
+                console.error('APP HAS ERROR MAYBE TRY TO RELOAD', error.stack());
+                
+            }
         }
         fetchData()
     }, [casesType])

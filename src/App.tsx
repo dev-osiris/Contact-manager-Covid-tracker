@@ -10,6 +10,7 @@ import SingleContact from "./components/SingleContact";
 import Edit from "./components/Edit";
 import AppCovid from "./covid/AppCovid";
 
+
 function App() {
 
   const [contactList, setContactList] = useLocalStorage("list", []);
@@ -32,7 +33,7 @@ function App() {
 
   return (
     <>
-      <a href="/" style={{textDecoration: "none"}}>
+      <a href="/" className='navbar' style={{textDecoration: "none"}}>
         <Heading title="Contact and Map App"/>
       </a>
         
@@ -42,6 +43,7 @@ function App() {
 
         <Routes> 
           <Route path="/" element={<Home />} />
+
           <Route path="/contact" element={ <Contact contactList={contactList} /> } />
 
           <Route path="/map" element={ <AppCovid /> } />
