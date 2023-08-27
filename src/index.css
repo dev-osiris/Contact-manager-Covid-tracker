@@ -5,6 +5,12 @@
   --highlight-color: #ff7082;
 }
 
+input:focus { 
+  outline: none !important;
+  border-color: var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-color);
+}
+
 p{
   font-size: medium;
   font-weight: lighter;
