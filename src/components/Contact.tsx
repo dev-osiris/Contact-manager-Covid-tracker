@@ -15,7 +15,7 @@ function Contact(props: contactProps) {
   return (
     <div className="contact_2">
 
-      <a href="/NewContact">
+      <a style={{"width": "fit-content"}} href="/NewContact">
         <button className="add-new-btn">Add New</button>
       </a>
       
