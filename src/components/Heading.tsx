@@ -6,7 +6,8 @@ interface titleProps {
 function Heading( props: titleProps ) {
   return (
     <div className="title">
-      <h1>{props.title}</h1>
+      <img src={require("../favicon2.png")} alt="icon" />
+      {props.title}
     </div>
   )
 }

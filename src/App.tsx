@@ -35,7 +35,7 @@ function App() {
   return (
     <>
       <a href="/" className='navbar' style={{textDecoration: "none"}}>
-        <Heading title="Contact and Map App"/>
+        <Heading title="Contact and Covid tracker"/>
       </a>
         
       
@@ -67,7 +67,7 @@ function App() {
         </Routes>
 
       </div>  
-      
+
       <Footer />
     </>
   );

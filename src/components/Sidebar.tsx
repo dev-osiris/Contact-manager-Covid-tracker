@@ -11,7 +11,7 @@ function Sidebar() {
       </div>
 
       <div className="sidebar-element">
-        <a href="/map">Charts and Maps</a>
+        <a href="/map">Covid Tracker</a>
       </div>
 
       <div style={{"height": "60vh"}}>

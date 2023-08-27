@@ -22,7 +22,7 @@ body {
 
 .navbar{
   align-items: center;
-  text-align: center;
+  /* text-align: start; */
   position: sticky;
   top: 0;
 }
@@ -32,14 +32,23 @@ body {
   color: white;
   height: 100%;
   max-height: 50px;
-  padding: 5px 0;
+  padding: 5px 0 5px 10%;
+  font-family:'Ubuntu', 'Roboto';
+  font-size:xx-large;
+  font-weight: bold;
 }
-.title > h1{
-  margin-top: 0;
+.title > img{
+  margin: 0 10px 0 0;
+  width: 40px;
+  height: 40px;
 }
 
+
 .home{
-  margin-left: 5%;
+  margin: 3% 0 0 5%;
+  background-color: white;
+  height: fit-content;
+  padding: 3%;
 }
 
 .sidebar{
@@ -136,7 +145,7 @@ body {
 }
 .add-new-btn:hover{
   background-color: var(--navbar-bg-color);
-  color: white;
+  color: var(--highlight-color);
   background-color: black;
   transition: 0.3s;
   cursor: pointer;
@@ -202,7 +211,7 @@ body {
   margin: 0 30px;
 }
 .footer-link:hover{
-  color: black;
+  color: crimson;
 }
 
 .copyright{
@@ -221,6 +230,7 @@ body {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
+  color: crimson;
 }
 
 .app{
