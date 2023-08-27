@@ -18,7 +18,8 @@ p{
 
 body {
   margin: 0;
-  background-color: var(--primary-bg-color);
+  /* background-color: var(--primary-bg-color); */
+  background-color: white;
   font-family: 'Ubuntu', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -50,10 +51,11 @@ body {
 
 
 .home{
-  margin: 3% 0 0 5%;
+  margin: 3% 2% 0 5%;
   background-color: white;
   height: fit-content;
-  padding: 3%;
+  padding: 3% 1% 3% 1%;
+  line-height: 170%;
 }
 
 .sidebar{
@@ -61,6 +63,7 @@ body {
   flex-direction: column;
   width: 15vw;
   height: 100vh;
+  margin-left: 3%;
   background-color: var(--primary-bg-color);
   text-align: center;
 }
@@ -97,6 +100,8 @@ body {
 .side-by-side{
   display: flex;
   margin: 0 10%;
+  background-color: #ebebeb;
+  padding-top: 10px;
 }
 
 .contact-card{
@@ -184,9 +189,8 @@ body {
 .form{
   background-color: #e3e1e1;
   height: 50vh;
-  width: 60vw;
-  margin-top: 5%;
-  margin-left: 5%;
+  width: 55vw;
+  margin: 5%;
   padding: 5%;
 }
 .form > label{
