@@ -2,6 +2,7 @@
 
 :root{
   --primary-bg-color: #ebebeb;
+  --highlight-color: #ff7082;
 }
 
 p{
@@ -35,9 +36,6 @@ body {
 }
 .title > h1{
   margin-top: 0;
-}
-.title:hover{
-  color: #e3e1e1;
 }
 
 .home{
@@ -95,10 +93,23 @@ body {
   background-color: white;
   border-radius: 4px;
   color: black;
-  font-weight: 200;
+  font-weight: 100;
 }
 .contact-card:hover{
   background-color: #f6f6f6;
+}
+
+.dateTime{
+  background-color: var(--highlight-color);
+}
+
+#contact-info-item{
+  font-weight: bold;
+}
+
+#contact-info-item-single{
+  font-weight: bold;
+  font-size: larger;
 }
 
 .main-grid{
@@ -175,6 +186,29 @@ body {
 
 .radio{
   margin-left: 1vw;
+}
+
+
+.footer{
+  text-align: center;
+  background-color: white;
+  padding: 40px 0 40px 0;
+}
+
+.footer-link{
+  font-weight: normal;
+  color: gray;
+  text-decoration: none;
+  margin: 0 30px;
+}
+.footer-link:hover{
+  color: black;
+}
+
+.copyright{
+  margin: 0;
+  font-size: small;
+  padding-top: 30px
 }
 
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */

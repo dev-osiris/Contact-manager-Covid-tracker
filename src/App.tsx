@@ -9,6 +9,7 @@ import NewContact from "./components/NewContact";
 import SingleContact from "./components/SingleContact";
 import Edit from "./components/Edit";
 import AppCovid from "./covid/AppCovid";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -64,7 +65,10 @@ function App() {
                                               handleDelete={handleDelete}
                                             />} />
         </Routes>
+
       </div>  
+      
+      <Footer />
     </>
   );
 }

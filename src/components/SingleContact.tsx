@@ -24,12 +24,18 @@ function SingleContact(props: Contactprops): JSX.Element {
         {
             contact &&
             <>
-                <h3>Name: {contact.firstName} {contact.lastName}</h3>
-                <h3>Is Active: { contact.isActive ? 'true' : 'false'}</h3>
-                <h3>Id: {contact.id} </h3>
+                <div style={{"marginBottom": "5%"}}>
+                    <span id="contact-info-item-single">Id: </span> {contact.id}
+                    <br /> <br />
+                    <span id="contact-info-item-single">Name:</span> {contact.firstName} {contact.lastName}
+                    <br /> <br />
+                    <span id="contact-info-item-single">Active: </span>{ contact.isActive ? 'yes' : 'No'}
+                </div>
+
                 <button className='add-del-btn' onClick={() => props.handleDelete(contact.id, false)}>
                     Delete
                 </button>
+                
                 <Link to={`/edit/${contact.id}`} >
                     <button className='add-del-btn' >Edit</button>
                 </Link>
