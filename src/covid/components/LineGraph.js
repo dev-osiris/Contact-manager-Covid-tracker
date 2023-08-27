@@ -80,7 +80,6 @@ const LineGraph = ({ casesType="cases" }) => {
             } 
             catch (error) {
                 console.error('APP HAS ERROR MAYBE TRY TO RELOAD', error.stack());
-                
             }
         }
         fetchData()
