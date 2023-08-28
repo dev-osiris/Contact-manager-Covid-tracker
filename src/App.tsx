@@ -10,6 +10,7 @@ import SingleContact from "./components/SingleContact";
 import Edit from "./components/Edit";
 import AppCovid from "./covid/AppCovid";
 import Footer from "./components/Footer";
+import NotFound from "./components/NotFound";
 
 
 function App() {
@@ -64,6 +65,8 @@ function App() {
                                               setContactList={setContactList} 
                                               handleDelete={handleDelete}
                                             />} />
+          
+          <Route path="*" element={ <NotFound /> } />
         </Routes>
 
       </div>  
