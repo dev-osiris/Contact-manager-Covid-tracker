@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import {useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 
 interface contactObj {
@@ -12,6 +12,7 @@ interface contactObj {
 interface NewContactProps{
     contactList: contactObj[],
     setContactList: (c: contactObj[]) => void,
+    setFilteredPosts: (a: contactObj[]) => void,
 }
  
 function NewContact(props: NewContactProps) {
@@ -46,6 +47,7 @@ function NewContact(props: NewContactProps) {
             isActive: isActive,
         }]
         props.setContactList(newList);
+        props.setFilteredPosts(newList); //this is necessary otherwise the contact list doesn't update
         navigate('/contact', {replace: true});
     }
 

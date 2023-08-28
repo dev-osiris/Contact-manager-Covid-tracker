@@ -9,15 +9,32 @@ interface contactObj {
 
 interface contactProps{
   contactList: Array<contactObj>,
+  searchText: string,
+  setSearchText: (a: string) => void,
 }
 
 function Contact(props: contactProps) {
+
   return (
     <div className="contact">
 
-      <a style={{"width": "fit-content"}} href="/NewContact">
-        <button className="add-new-btn">Add New</button>
-      </a>
+      <div className="add-new-and-search-box">
+        <a style={{"width": "fit-content"}} href="/NewContact">
+          <button className="add-new-btn">Add New</button>
+        </a>
+
+        {/* preventDefualt prevents the page to reload on hitting enter and losing the search results. */}
+        <form onSubmit={(e) => e.preventDefault()} role="search">
+          <input 
+            className="search-box" 
+            type="search" 
+            placeholder="search contacts"
+            aria-label="Search"
+            value={props.searchText}
+            onChange={(e) => props.setSearchText(e.target.value)} 
+          />
+          </form>
+      </div>
       
       <div className="main-grid">
 

@@ -12,7 +12,8 @@ type contactObj = {
 interface Editprops{
     contactList: contactObj[],  
     setContactList: (c: contactObj[]) => void, 
-    handleDelete: (id: number, isEditing: boolean) => void,                                                               
+    handleDelete: (id: number, isEditing: boolean) => void,
+    setFilteredPosts: (a: contactObj[]) => void,                                                           
 }
 
 function Edit(props: Editprops) {
@@ -45,6 +46,7 @@ function Edit(props: Editprops) {
             isActive: active,
         }]
         props.setContactList(newList);
+        props.setFilteredPosts(newList); //this is necessary otherwise the contact list doesn't update
 
         navigate('/contact', {replace:true})
     }

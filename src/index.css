@@ -118,6 +118,17 @@ body {
   border-color: var(--highlight-color);
 }
 
+.add-new-and-search-box{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.search-box{
+  height: 2rem;
+  margin: 1.3rem;
+}
+
 /* headers of contacts are coloured */
 .dateTime{
   background-color: var(--highlight-color);
