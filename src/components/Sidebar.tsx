@@ -4,19 +4,19 @@ function Sidebar() {
   let path = useLocation().pathname;
   return (
     <div className="sidebar">
-      <div id={path === '/' ? 'active'  : ''} className="sidebar-element">
-        <a href="/">Home</a>
-      </div>
+      <a id={path === '/' ? 'active'  : ''} className="sidebar-element" href="/">
+        Home
+      </a>
 
-      <div id={path === '/contact' ? 'active'  : ''} className="sidebar-element">
-        <a href="/contact">Contact</a>
-      </div>
+      <a id={path === '/contact' ? 'active'  : ''} className="sidebar-element" href="/contact">
+        Contact
+      </a>
 
-      <div id={path === '/map' ? 'active'  : ''} className="sidebar-element">
-        <a href="/map">Covid Tracker</a>
-      </div>
+      <a id={path === '/map' ? 'active'  : ''} className="sidebar-element" href="/map">
+        Covid Tracker
+      </a>
 
-      <div style={{"height": "60vh", "borderLeft": "solid #ff7082"}}>
+      <div style={{"height": "60vh"}}>
         <p>
           Welcome to our website. Our platform seamlessly combines a powerful contact manager with a comprehensive COVID-19 tracker, offering you the tools you need to manage your contacts while staying vigilant in the face of the ongoing global health crisis. 
         </p>
