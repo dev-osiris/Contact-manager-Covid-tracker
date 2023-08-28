@@ -1,16 +1,18 @@
+import { useLocation } from "react-router"
 
 function Sidebar() {
+  let path = useLocation().pathname;
   return (
     <div className="sidebar">
-      <div className="sidebar-element">
+      <div id={path === '/' ? 'active'  : ''} className="sidebar-element">
         <a href="/">Home</a>
       </div>
 
-      <div className="sidebar-element">
+      <div id={path === '/contact' ? 'active'  : ''} className="sidebar-element">
         <a href="/contact">Contact</a>
       </div>
 
-      <div className="sidebar-element">
+      <div id={path === '/map' ? 'active'  : ''} className="sidebar-element">
         <a href="/map">Covid Tracker</a>
       </div>
 
