@@ -72,6 +72,7 @@ function NewContact(props: NewContactProps) {
             type="radio" 
             name="isActive" 
             value='true' 
+            checked
             onChange={handleRadioChange} 
         />
         <label htmlFor="yes">Yes</label>
@@ -87,7 +88,7 @@ function NewContact(props: NewContactProps) {
         <label htmlFor="no">No</label>
 
         <br />
-        <button className='add-del-btn' >Add</button> : 
+        <button className='add-del-btn' >Add</button> 
 
     </form>
   )
