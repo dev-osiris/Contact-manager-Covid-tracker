@@ -8,8 +8,12 @@ function Sidebar() {
         Home
       </a>
 
-      <a id={path === '/contact' ? 'active'  : ''} className="sidebar-element" href="/contact">
-        Contact
+      <a 
+        id={path === '/contact' || path === '/NewContact' || path.includes('/edit/') || path.includes('/singlecontact/') ? 'active' : ''} 
+        className="sidebar-element" 
+        href="/contact"
+        >
+          Contact
       </a>
 
       <a id={path === '/map' ? 'active'  : ''} className="sidebar-element" href="/map">
@@ -18,7 +22,9 @@ function Sidebar() {
 
       <div style={{"height": "60vh"}}>
         <p>
-          Welcome to our website. Our platform seamlessly combines a powerful contact manager with a comprehensive COVID-19 tracker, offering you the tools you need to manage your contacts while staying vigilant in the face of the ongoing global health crisis. 
+          Welcome to our website. Our platform seamlessly combines a powerful contact manager with a comprehensive 
+          COVID-19 tracker, offering you the tools you need to manage your contacts while staying vigilant in the 
+          face of the ongoing global health crisis. 
         </p>
       </div>
     </div>
